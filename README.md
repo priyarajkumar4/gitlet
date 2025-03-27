@@ -1,20 +1,44 @@
-## Gitlet: A Version Control System
-Gitlet is a simplified version control system inspired by Git, developed as a part of the UC Berkeley CS 61B course. It mimics many common Git functionalities including saving versions of files, restoring files, and branching.
+# Gitlet
 
-Features
-Track changes in files and directories
+A mini version control system written in Java, modeled after Git. Built for the CS 61B course at UC Berkeley.
 
-Commit files with messages
+## Features
 
-Create and switch between branches
+- `init`, `add`, `commit`, `rm`, `log`, `global-log`, `find`, `status`
+- Branching (`branch`, `rm-branch`, `checkout`) and merging with conflict resolution
+- Persistent storage using Java serialization
+- Tracks untracked, modified, and removed files
 
-Merge branches with conflict resolution
+## Example Usage
 
-Remove files from tracking
+```bash
+java gitlet.Main init
+java gitlet.Main add file.txt
+java gitlet.Main commit "initial commit"
+java gitlet.Main branch feature
+java gitlet.Main merge feature
+```
 
-Log history of commits
+## Merge Handling
 
-Checkout files and branches
+- Performs 3-way merge using the latest common ancestor (split point)
+- Detects and resolves conflicts by inserting conflict markers:
 
-Global log and find commits by message
+  ```text
+  <<<<<<< HEAD
+  // content from current branch
+  =======
+  // content from given branch
+  >>>>>>>
+  ```
 
+- Supports fast-forward merges when the current branch is behind
+
+## Testing
+
+- Manually tested using real-world Git workflows (adding, committing, branching, merging)
+- Verified behavior by comparing results with actual `git` commands in parallel
+- Edge cases covered:
+  - Merge conflicts
+  - Fast-forwarding branches
+  - Untracked or modified files interfering with merges
