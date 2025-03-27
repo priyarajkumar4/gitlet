@@ -1,0 +1,28 @@
++ NAME F
+      Copy the contents of src/F into a file named NAME.
+- NAME
+      Delete the file named NAME.
+> COMMAND OPERANDS
+LINE1
+LINE2
+...
+<<<
+=== Branches ===
+*master
+
+=== Staged Files ===
+
+=== Removed Files ===
+
+=== Modifications Not Staged For Commit ===
+f.txt (modified)
+
+=== Untracked Files ===
+
+<<<
+- f.txt
+> status
+=== Branches ===
+*master
+
+=== Staged Files ===
